@@ -54,5 +54,8 @@ command.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
-pip install --upgrade -r requirements.txt
+ * `python -m pip install -r requirements.txt`
+ * `python -m pip install aws-cdk.aws-s3 aws-cdk.aws-lambda`
+ * `pip install --upgrade -r requirements.txt`
+
 Enjoy!

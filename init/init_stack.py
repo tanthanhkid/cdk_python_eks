@@ -27,3 +27,17 @@ class InitStack(core.Stack):
             version=eks.KubernetesVersion.V1_17
         )
         
+    def getOrCreateVPC(self):
+
+        vpc_name = "EKS-VPC"
+        vpc_cidr =  "10.10.0.0/18"
+
+
+        #vpc = ec2.Vpc(self,"my-vpc",cidr="10.0.0.0/16",max_azs=2,nat_gateways=1 )
+        if(self.node.try_get_context('use_default_vpc')=='1'):
+            ec2.Vpc.from_lookup(self,vpc_name=vpc_name,is_default=true)
+        else
+            if(self.node.try_get_context("use_default_vpc")):
+                ec2.Vpc.from_lookup(self,vpc_name=vpc_name,vpc_id=self.node.try_get_context("use_default_vpc"))
+            else
+                ec2.Vpc(self,vpc_name=vpc_name,cidr=vpc_cidr,max_azs=2,nat_gateways=1,subnet_configuration=)
